@@ -1,0 +1,14 @@
+@RELATION film_success
+
+
+@ATTRIBUTE Temp             NUMERIC
+@ATTRIBUTE Humid            NUMERIC
+@ATTRIBUTE Light            NUMERIC
+@ATTRIBUTE Dust             NUMERIC
+@ATTRIBUTE airquality           NUMERIC
+
+@DATA
+%batched tuples will be appended here in string
+
+
+

@@ -1,0 +1,3 @@
+timestamp,source,longitude,latitude,temperature,humidity,light,dust,airquality_raw
+second,string,lon,lat,far,per,per,per,per
+sv,sv,v,v,v,v,v,v,v

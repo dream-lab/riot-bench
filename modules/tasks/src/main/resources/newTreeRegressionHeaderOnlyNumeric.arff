@@ -1,0 +1,12 @@
+@RELATION film_success
+
+@ATTRIBUTE Longi            NUMERIC
+@ATTRIBUTE Lat              NUMERIC
+@ATTRIBUTE Temp             NUMERIC
+@ATTRIBUTE Humid            NUMERIC
+@ATTRIBUTE Light            NUMERIC
+@ATTRIBUTE Dust             NUMERIC
+@ATTRIBUTE airquality           NUMERIC
+
+@DATA
+-71.106167,42.372802,-0.1,65.3,0,367.38,26

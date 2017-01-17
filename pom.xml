@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~     Copyright 2013 University of Southern California
+  ~
+  ~  Licensed under the Apache License, Version 2.0 (the
+  ~  "License"); you may not use this file except in compliance
+  ~  with the License.  You may obtain a copy of the License at
+  ~ 
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~  Unless required by applicable law or agreed to in writing,
+  ~  software distributed under the License is distributed on an
+  ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~  KIND, either express or implied.  See the License for the
+  ~  specific language governing permissions and limitations
+  ~  under the License.
+  -->
+
+<project
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>in.dream_lab.bm.stream_iot</groupId>
+    <artifactId>iot-bm</artifactId>
+	<version>0.1</version>
+    <name>IoT-BM</name>
+    <description>IoT Benchmark</description>
+
+    <packaging>pom</packaging> 
+    <url>http://www.dream-lab.in/</url>
+
+    <inceptionYear>2016</inceptionYear>
+
+    <organization>
+        <name>Indian Institute of Science, Bangalore</name>
+        <url>http://iisc.ac.in/</url>
+    </organization>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <attach>true</attach>
+                        </configuration>
+                    </plugin>
+                     <plugin>
+                      <artifactId>maven-assembly-plugin</artifactId>
+                      <version>2.4</version>
+                      <configuration>
+                        <descriptors>
+                          <descriptor>assembly/bin.xml</descriptor>
+                        </descriptors>
+                      </configuration>
+                    </plugin>
+
+
+                    <!--&lt;!&ndash;extra by anshu&ndash;&gt;-->
+
+                    <plugin>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <configuration>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                            <archive>
+                                <manifest>
+                                    <mainClass></mainClass>
+                                </manifest>
+                            </archive>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>make-assembly</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <!--&lt;!&ndash;extra by anshu&ndash;&gt;-->
+
+
+                </plugins>
+            </build>
+
+            <activation>
+                <property>
+                    <name>release</name>
+                </property>
+            </activation>
+        </profile>       
+    </profiles>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>in.dream_lab.bm.stream_iot</groupId>
+                <artifactId>iot-bm-tasks</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>in.dream_lab.bm.stream_iot</groupId>
+                <artifactId>iot-bm-storm</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    
+    <repositories>
+        <repository>
+        	<id>MavenCentral</id>
+        	<name>Maven repository</name>
+        	<url>http://repo1.maven.org/maven2</url>
+        	<releases>
+        		<enabled>true</enabled>
+        	</releases>
+        	<snapshots>
+        		<enabled>false</enabled>
+        	</snapshots>
+        </repository>
+
+        <repository>
+        	<id>Codehaus Snapshots</id>
+        	<url>http://snapshots.repository.codehaus.org/</url>
+        	<snapshots>
+        		<enabled>true</enabled>
+        	</snapshots>
+        	<releases>
+        		<enabled>false</enabled>
+        	</releases>
+        </repository>
+    </repositories>
+
+    <modules>
+       <module>modules/tasks</module>
+	   <module>modules/storm</module>
+	   <module>modules/distribution</module>
+    </modules>
+
+    <properties>
+        <!-- Sets the source encoding to UTF-8 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Maven Tools -->
+        <maven.version>3.0.4</maven.version>
+    </properties>
+
+</project>

@@ -1,0 +1,10 @@
+@RELATION film_success
+
+
+@ATTRIBUTE triptimeInSecs            NUMERIC
+@ATTRIBUTE tripDistance            NUMERIC
+@ATTRIBUTE fareAmount             NUMERIC
+@ATTRIBUTE result           {Bad,Good,VeryGood}
+
+@DATA
+%batched tuples will be appended here in string

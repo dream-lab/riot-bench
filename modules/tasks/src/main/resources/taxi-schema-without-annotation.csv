@@ -1,0 +1,4 @@
+taxi_identifier,hack_license,pickup_datetime,timestamp,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude,payment_type,fare_amount,surcharge,mta_tax,tip_amount,tolls_amount,total_amount
+string,string,time,timestamp,second,meter,lon,lat,lon,lat,string,dollar,percentage,percentage,dollar,dollar,dollar
+sv,sv,sv,sv,v,v,sv,sv,sv,sv,sv,v,v,v,v,v,v
+
