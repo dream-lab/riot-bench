@@ -1,16 +1,20 @@
 ## RIoTBench: A Real-time IoT Benchmark for Distributed Stream Processing Platforms
 ### IoT  Micro-benchmarks 
-| Task Name  | Code | Category |Pattern|Selectivity|State
-| -----------| ------------- | ------------- | ------------- |------------- |
-|Annotate | ANN | Parse |  Transform |1:1|No|
-|CsvToSenML | C2S | Parse |  Transform |1:1|No|
-### Application  benchmarks 
-| App. Name  | Code |
+| Task Name  | Category |
 | ------------- | ------------- |
-| Extraction, Transform and Load | ETL   |
-| Satistical Summarization dataflow  | STATS   |
-| Model Training  | TRAIN   |
-| Predictive Analytics   | PRED   |
+| XML Parsing  | Parse   |
+| Bloom Filter  | Filter   |
+| Average   | Statistical   |
+|   Distinct Appox. Count  | Statistical   |
+|   Kalman Filter | Statistical   |
+|   Second Order Moment | Statistical   |
+|   Decision Tree Classify | Predictive   |
+|   Multi-variate Linear Reg. | Predictive   |
+|   Sliding Linear Regression | Predictive   |
+|   Azure Blob D/L | IO   |
+|   Azure Blob U/L | IO   |
+|   Azure Table Query | IO   |
+|   MQTT Publish | IO   |
 
 
 <!--- ![FCAST](https://github.com/anshuiisc/FIG/blob/master/STATS-and-PRED.png)  --->
