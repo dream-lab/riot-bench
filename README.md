@@ -29,6 +29,14 @@
 | Remote Files Zip             | RZP | IO            | Sink             | 1:1   | No  |
 | MultiLine Plot               | PLT | Visualization | Transform        | 1:1   | No  |
 
+### Application  benchmarks 
+| App. Name  | Code |
+| ------------- | ------------- |
+| Extraction, Transform and Load  dataflow  | ETL   |
+| Statistical Summarization dataflow  | STATS   |
+| Model Training dataflow  | TRAIN   |
+| Predictive Analytics dataflow   | PRED   |
+
 
 <!--- ![FCAST](https://github.com/anshuiisc/FIG/blob/master/STATS-and-PRED.png)  --->
 
