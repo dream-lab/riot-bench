@@ -1,5 +1,4 @@
-# riot-bench
-## IoT Benchmark using Apache Storm [VLDB/TPCTC-2016]
+## RIoTBench: A Real-time IoT Benchmark for Distributed Stream Processing Platforms
 ### IoT  Micro-benchmarks 
 | Task Name  | Category |
 | ------------- | ------------- |
@@ -20,8 +19,10 @@
 ### Application  benchmarks 
 | App. Name  | Code |
 | ------------- | ------------- |
-| Pre-processing & statistical summarization dataflow  | STATS   |
-| Predictive Analytics dataflow   | PRED   |
+| Extraction, Transform and Load | ETL   |
+| Satistical Summarization dataflow  | STATS   |
+| Model Training  | TRAIN   |
+| Predictive Analytics   | PRED   |
 
 
 <!--- ![FCAST](https://github.com/anshuiisc/FIG/blob/master/STATS-and-PRED.png)  --->
@@ -39,7 +40,7 @@
  ```
 - For microTaskName please refer  switch logic in  MicroTopologyFactory class in package   "in.dream_lab.bm.stream_iot.storm.topo.micro"   
 
-Please refer the paper for detailed info  - <http://arxiv.org/abs/1606.07621> 
+Please refer the paper for detailed info  - <arxiv-link> 
 
 
 
