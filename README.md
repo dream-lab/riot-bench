@@ -16,7 +16,7 @@
 |   Azure Table Query | IO   |
 |   MQTT Publish | IO   |
 
- ### Application  benchmarks 		
+ <!---### Application  benchmarks 		
  | App. Name  | Code |		
  | ------------- | ------------- |		  | ------------- | ------------- |
  | Extraction, Transform and Load | ETL   |		 +| XML Parsing  | Parse   |
