@@ -1,7 +1,7 @@
 ## RIoTBench: A Real-time IoT Benchmark for Distributed Stream Processing Platforms
 ### IoT  Micro-benchmarks 
 | Task Name  | Code | Category |Pattern|Selectivity|State
-| ------------- | ------------- |
+| -----------| ------------- | ------------- | ------------- |------------- |
 |Annotate | ANN | Parse |  Transform |1:1|No
 |CsvToSenML | C2S | Parse |  Transform |1:1|No
 |SenML Parsing | SML | Parse | Transform |1:1|No
