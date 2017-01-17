@@ -2,34 +2,8 @@
 ### IoT  Micro-benchmarks 
 | Task Name  | Code | Category |Pattern|Selectivity|State
 | -----------| ------------- | ------------- | ------------- |------------- |
-|Annotate | ANN | Parse |  Transform |1:1|No
-|CsvToSenML | C2S | Parse |  Transform |1:1|No
-|SenML Parsing | SML | Parse | Transform |1:1|No
-|XML Parsing | XML | Parse | Transform |1:1|No
-|Bloom Filter | BLF | Filter | Filter |1:0/1|No
-|Range Filter | RGF | Filter | Filter |1:0/1 | No
-|Accumlator | ACC| Statistical  | Aggregate |N:1|Yes
-|Average | AVG| Statistical  | Aggregate |N:1|Yes
-|Distinct Appox. Count| DAC | Statistical | Transform |1:1|Yes
-|Kalman Filter | KAL | Statistical | Transform |1:1|Yes
-|Second Order Moment | SOM | Statistical | Transform |1:1|Yes
-|Decision Tree Classify | DTC  | Predictive | Transform |1:1|No
-|Decision Tree Train | DTT  | Predictive | Aggregate  |N:1|No
-|Interpolation | INP | Predictive | Transform |1:1|Yes
-|Multi-var. Linear Reg. | MLR| Predictive | Transform |1:1|No
-|Multi-var. Linear Reg. Train | MLT| Predictive | Aggregate |N:1|No
-|Sliding Linear Regression | SLR| Predictive | Flat Map |N:M|Yes
-|Azure Blob D/L | ABD| IO | Source/Transform |1:1|No
-|Azure Blob U/L | ABU| IO | Sink |1:1|No
-|Azure Table Lookup | ATL| IO | Source/Transform |1:1|No
-|Azure Table Range | ATR| IO | Source/Transform |1:1|No
-|Azure Table Insert | ATI| IO | Transform |1:1|No
-|MQTT Publish | MQP| IO | Sink |1:1|No
-|MQTT Subscribe | MQS| IO | Sink |1:1|No
-|Local Files Zip | LZP | IO | Sink |1:1|No
-|Remote Files Zip | RZP | IO | Sink |1:1|No
-|MultiLine Plot | PLT| Visualization  | Transform |1:1|No
-
+|Annotate | ANN | Parse |  Transform |1:1|No|
+|CsvToSenML | C2S | Parse |  Transform |1:1|No|
 ### Application  benchmarks 
 | App. Name  | Code |
 | ------------- | ------------- |
