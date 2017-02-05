@@ -40,6 +40,9 @@
 
 
  ![FCAST](https://github.com/anshuiisc/FIG/blob/master/ETL-1.png)
+ ![FCAST](https://github.com/anshuiisc/FIG/blob/master/stats-1.png)
+ ![FCAST](https://github.com/anshuiisc/FIG/blob/master/pred-1.png)
+ ![FCAST](https://github.com/anshuiisc/FIG/blob/master/train-1.png)
 
 
 - Steps to run benchmark's
