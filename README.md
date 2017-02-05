@@ -38,7 +38,9 @@
 | Predictive Analytics dataflow   | PRED   |
 
 
+
  ![FCAST](https://github.com/anshuiisc/FIG/blob/master/ETL.pdf)
+ [embed]https://github.com/anshuiisc/FIG/blob/master/ETL.pdf[/embed]
 
 - Steps to run benchmark's
 - Once cloned  run 
