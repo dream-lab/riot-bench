@@ -38,10 +38,13 @@
 | Predictive Analytics dataflow   | PRED   |
 
 
-
+### Extraction, Transform and Load  dataflow (ETL)
  ![FCAST](https://github.com/anshuiisc/FIG/blob/master/ETL-1.png)
+### Statistical Summarization dataflow (STATS) 
  ![FCAST](https://github.com/anshuiisc/FIG/blob/master/stats-1.png)
+### Model Training dataflow (TRAIN)
  ![FCAST](https://github.com/anshuiisc/FIG/blob/master/pred-1.png)
+### Predictive Analytics dataflow (PRED)  
  ![FCAST](https://github.com/anshuiisc/FIG/blob/master/Train-1.png)
 
 
