@@ -53,7 +53,7 @@
  ```
 - For microTaskName please refer  switch logic in  MicroTopologyFactory class in package   "in.dream_lab.bm.stream_iot.storm.topo.micro"   
 
-Please refer the paper for detailed info  - <arxiv-link> 
+Please refer the paper for detailed info  - <https://arxiv.org/abs/1701.08530> 
 
 
 
