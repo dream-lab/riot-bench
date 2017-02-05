@@ -39,8 +39,8 @@
 
 
 
- ![FCAST](https://github.com/anshuiisc/FIG/blob/master/ETL.pdf)
- [embed]https://github.com/anshuiisc/FIG/blob/master/ETL.pdf[/embed]
+ ![FCAST](https://github.com/anshuiisc/FIG/blob/master/ETL-1.png)
+
 
 - Steps to run benchmark's
 - Once cloned  run 
