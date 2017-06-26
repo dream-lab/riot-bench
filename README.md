@@ -1,4 +1,4 @@
-## RIoTBench: A Real-time IoT Benchmark for Distributed Stream Processing Platforms
+## RIoTBench: A Real-time IoT Benchmark for Distributed Stream Processing Platforms (To appear in Concurrency and Computation: Practice and Experience)
 ### IoT  Micro-benchmarks 
 | Annotate                     | ANN | Parse         | Transform        | 1:1   | No  |
 |------------------------------|-----|---------------|------------------|-------|-----|
