@@ -1,4 +1,6 @@
-## RIoTBench: A Real-time IoT Benchmark for Distributed Stream Processing Platforms (To appear in Concurrency and Computation: Practice and Experience)
+## RIoTBench: A Real-time IoT Benchmark for Distributed Stream Processing Platforms 
+### Anshu Shukla, Shilpa Chaturvedi and Yogesh Simmhan, Concurrency and Computation: Practice and Experience (To appear), 2017 https://arxiv.org/abs/1701.08530
+
 ### IoT  Micro-benchmarks 
 | Annotate                     | ANN | Parse         | Transform        | 1:1   | No  |
 |------------------------------|-----|---------------|------------------|-------|-----|
@@ -62,8 +64,3 @@
 - For microTaskName please refer  switch logic in  MicroTopologyFactory class in package   "in.dream_lab.bm.stream_iot.storm.topo.micro"   
 
 Please refer the paper for detailed info  - <https://arxiv.org/abs/1701.08530> (To appear in Concurrency and Computation: Practice and Experience)
-
-
-
-
-
