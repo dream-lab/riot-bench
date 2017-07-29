@@ -129,10 +129,10 @@ public class StatsWithVisualizationTopology
 		        .fieldsGrouping("SimpleLinearRegressionPredictorBolt", new Fields("SENSORID","OBSTYPE"))
 		        .fieldsGrouping("DistinctApproxCountBolt" , new Fields("OBSTYPE"));
         
-//        builder.setBolt("AzureBlobUploadTaskBolt",
-//                new AzureBlobUploadTaskBolt(p_), 1)
-//                .shuffleGrouping("Visualization");
-//        
+        builder.setBolt("AzureBlobUploadTaskBolt",
+                new AzureBlobUploadTaskBolt(p_), 1)
+                .shuffleGrouping("Visualization");
+   
         builder.setBolt("sink", new Sink(sinkLogFileName), 1)
                        .shuffleGrouping("Visualization");
 
