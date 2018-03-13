@@ -68,7 +68,7 @@
 Please refer the paper for detailed info  - <https://arxiv.org/abs/1701.08530> 
 
 ### Please cite as:
-- RIoTBench: A Real-time IoT Benchmark for Distributed Stream Processing Platforms, Anshu Shukla, Shilpa Chaturvedi and Yogesh Simmhan, _Concurrency and Computation: Practice and Experience_, 2017 (To appear)
+- RIoTBench: A Real-time IoT Benchmark for Distributed Stream Processing Platforms, Anshu Shukla, Shilpa Chaturvedi and Yogesh Simmhan, _Concurrency and Computation: Practice and Experience_,  Volume 29, Issue 21, 2017, doi:10.1002/cpe.4257
 
 This article is an extended version of:
 - Benchmarking Distributed Stream Processing Platforms for IoT Applications, Anshu Shukla and Yogesh Simmhan, _TPC Technology Conference on Performance Evaluation & Benchmarking (TPCTC)_, 2016.
