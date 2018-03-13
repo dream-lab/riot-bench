@@ -1,5 +1,7 @@
 ## RIoTBench: A Real-time IoT Benchmark for Distributed Stream Processing Platforms 
-### Anshu Shukla, Shilpa Chaturvedi and Yogesh Simmhan, _Concurrency and Computation: Practice and Experience_, 2017 (To appear), Online: https://arxiv.org/abs/1701.08530
+### Anshu Shukla, Shilpa Chaturvedi and Yogesh Simmhan, _Concurrency and Computation: Practice and Experience_,  Volume 29, Issue 21, 2017
+### Online: http://onlinelibrary.wiley.com/doi/10.1002/cpe.4257/abstract
+### Pre-print: https://arxiv.org/abs/1701.08530
 
 ### IoT  Micro-benchmarks 
 | Annotate                     | ANN | Parse         | Transform        | 1:1   | No  |
