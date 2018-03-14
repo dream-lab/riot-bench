@@ -51,7 +51,6 @@ public class AzureTableBatchInsert extends AbstractTask<String,Float>
 	public Float doTaskLogic(Map map) 
 	{
 		String tuple;
-		System.out.println("Size of map in azure insert task " + map.size());
 		 // Define a batch operation.
 	    TableBatchOperation batchOperation = new TableBatchOperation();
 		try 
@@ -59,6 +58,7 @@ public class AzureTableBatchInsert extends AbstractTask<String,Float>
 			for(int i = 0; i < map.size(); i++)
 			{
 				tuple = (String)map.get(String.valueOf(i));
+				System.out.println(" $$$$$$$$$$$$$ Azure sample tuple " +tuple);
 				SYSCity obj = SYSCity.parseString(tuple);
 				batchOperation.insert(obj);			
 			 }
@@ -91,9 +91,12 @@ public class AzureTableBatchInsert extends AbstractTask<String,Float>
 			// Create a cloud table object for the table.
 			cloudTable = tableClient.getTableReference(tableName);
 			
+			System.out.println("$$$$$$$$$$$$$ Azure connection est");
+			
 		} catch (Exception e) 
 		{
-			l.warn("Exception in connectToAzTable: "+tableName, e);
+			l.warn("$$$$$$$$$$$$$Exception in connectToAzTable: "+tableName, e);
+			System.out.println("$$$$$$$$$$$$$ Exception in Azure connection est");
 		}
 		return cloudTable;
 	}
@@ -369,7 +372,7 @@ public class AzureTableBatchInsert extends AbstractTask<String,Float>
 			SYSCity obj = new SYSCity();
 			String fields[] = s.split(",");
 			Random r = new Random(); 
-			obj.rowKey = fields[0]+"-" +fields[1];
+			obj.rowKey = fields[0]+"-" +fields[1]+"-"+r.nextInt(100);
 			obj.partitionKey = "partition";
 			obj.setTs(fields[0]);
 			obj.setSource(fields[1]);

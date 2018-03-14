@@ -42,8 +42,7 @@ public class DistinctApproxCount extends AbstractTask<String,Float> {
 				assert k_bucketParam <= 31;  
 				m_numBuckets = 1 << k_bucketParam;
 				// If positive, use that particular field number in the input CSV message as input for count
-				//useMsgField = Integer.parseInt(p_.getProperty("AGGREGATE.DISTINCT_APPROX_COUNT.USE_MSG_FIELD", "0")); 
-				useMsgField = 0;
+				useMsgField = Integer.parseInt(p_.getProperty("AGGREGATE.DISTINCT_APPROX_COUNT.USE_MSG_FIELD", "0")); 
 				doneSetup=true;
 			}
 		}

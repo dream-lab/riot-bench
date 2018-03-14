@@ -67,8 +67,8 @@ public class SenMLParse extends AbstractTask<String,Map>
 			else
 				 m = (String)map.get(AbstractTask.DEFAULT_KEY);
 			jsonObject = (JSONObject) jsonParser.parse(m);
-//			long baseTime =   (long) (jsonObject.get("bt") == null  ? 0L : jsonObject.get("bt")) ; // for sys and taxi
-			long baseTime =   Long.parseLong(((String)jsonObject.get("bt"))) ;     // for fit dataset
+			long baseTime =   (long) (jsonObject.get("bt") == null  ? 0L : jsonObject.get("bt")) ; // for sys and taxi
+//			long baseTime =   Long.parseLong(((String)jsonObject.get("bt"))) ;     // for fit dataset
 			String baseUnit = (String)(( jsonObject.get("bu") == null ) ? null : jsonObject.get("bu") );
 			String baseName = (String)(( jsonObject.get("bn") == null ) ? null : jsonObject.get("bn") );
 			JSONArray jsonArr = (JSONArray) jsonObject.get("e");

@@ -53,60 +53,14 @@ public class StatsWithVisualizationTopology
 
 
         TopologyBuilder builder = new TopologyBuilder();
-        
-        String basePathForMultipleSpout="/home/anshu/shilpa/code/data/SYS-6hrs-10filles-splitted-data/";
-// 	   String basePathForMultipleSpout="/home/shilpa/Datasets/CityCanvasData/SYS_6hrs_data_10Files/SYS-inputcsv-predict-10spouts200mps-480sec-file/";
- 		 
-        System.out.println("basePathForMultipleSpout is used -"+basePathForMultipleSpout);
-        String spout1InputFilePath=basePathForMultipleSpout+"SYS-inputcsv-predict-10spouts200mps-480sec-file1.csv";
-        String spout2InputFilePath=basePathForMultipleSpout+"SYS-inputcsv-predict-10spouts200mps-480sec-file2.csv";
-        String spout3InputFilePath=basePathForMultipleSpout+"SYS-inputcsv-predict-10spouts200mps-480sec-file3.csv";
-
-        String spout4InputFilePath = basePathForMultipleSpout+"SYS-inputcsv-predict-10spouts200mps-480sec-file4.csv";
-        String spout5InputFilePath=basePathForMultipleSpout+"SYS-inputcsv-predict-10spouts200mps-480sec-file5.csv";
-        String spout6InputFilePath=basePathForMultipleSpout+"SYS-inputcsv-predict-10spouts200mps-480sec-file6.csv";
-        String spout7InputFilePath=basePathForMultipleSpout+"SYS-inputcsv-predict-10spouts200mps-480sec-file7.csv";
-        String spout8InputFilePath=basePathForMultipleSpout+"SYS-inputcsv-predict-10spouts200mps-480sec-file8.csv";
-        String spout9InputFilePath=basePathForMultipleSpout+"SYS-inputcsv-predict-10spouts200mps-480sec-file9.csv";
-        String spout10InputFilePath=basePathForMultipleSpout+"SYS-inputcsv-predict-10spouts200mps-480sec-file10.csv";
- 		 		 
-//        builder.setSpout("spout1", new SampleSenMLSpout(spout1InputFilePath, spoutLogFileName, argumentClass.getScalingFactor()),
-//                1);
-//        builder.setSpout("spout2", new SampleSenMLSpout(spout2InputFilePath, spoutLogFileName, argumentClass.getScalingFactor()),
-//                1);
-//        builder.setSpout("spout3", new SampleSenMLSpout(spout3InputFilePath, spoutLogFileName, argumentClass.getScalingFactor()),
-//                1);
-//        builder.setSpout("spout4", new SampleSenMLSpout(spout4InputFilePath, spoutLogFileName, argumentClass.getScalingFactor()),
-//                1);
-//        builder.setSpout("spout5", new SampleSenMLSpout(spout5InputFilePath, spoutLogFileName, argumentClass.getScalingFactor()),
-//                1);
-//        builder.setSpout("spout6", new SampleSenMLSpout(spout6InputFilePath, spoutLogFileName, argumentClass.getScalingFactor()),
-//                1);
-//        builder.setSpout("spout7", new SampleSenMLSpout(spout7InputFilePath, spoutLogFileName, argumentClass.getScalingFactor()),
-//                1);
-//        builder.setSpout("spout8", new SampleSenMLSpout(spout8InputFilePath, spoutLogFileName, argumentClass.getScalingFactor()),
-//                1);
-//        builder.setSpout("spout9", new SampleSenMLSpout(spout9InputFilePath, spoutLogFileName, argumentClass.getScalingFactor()),
-//                1);
-//        builder.setSpout("spout10", new SampleSenMLSpout(spout10InputFilePath, spoutLogFileName, argumentClass.getScalingFactor()),
-//                1);
-//        
+         		 		 
         builder.setSpout("spout", new SampleSenMLSpout(argumentClass.getInputDatasetPathName(), spoutLogFileName, argumentClass.getScalingFactor()),
                 1);
-//        
+
         builder.setBolt("ParseSenML",
                 new SenMLParseBolt(p_), 1)
                 	.shuffleGrouping("spout");
-//			        .shuffleGrouping("spout2")
-//			        .shuffleGrouping("spout3")
-//			        .shuffleGrouping("spout4")
-//			        .shuffleGrouping("spout5")
-//			        .shuffleGrouping("spout6")
-//			        .shuffleGrouping("spout7")
-//			        .shuffleGrouping("spout8")
-//			        .shuffleGrouping("spout9")
-//			        .shuffleGrouping("spout10");
-//         
+
         builder.setBolt("BlockWindowAverageBolt",
                 new BlockWindowAverageBolt(p_),1)
                 .fieldsGrouping("ParseSenML",new Fields("SENSORID","OBSTYPE"));

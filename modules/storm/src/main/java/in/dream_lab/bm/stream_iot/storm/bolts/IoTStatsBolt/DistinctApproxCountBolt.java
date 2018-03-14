@@ -33,9 +33,8 @@ public class DistinctApproxCountBolt extends BaseRichBolt {
     public void prepare(Map map, TopologyContext topologyContext, OutputCollector outputCollector) {
 
         this.collector=outputCollector; initLogger(LoggerFactory.getLogger("APP"));
-        this.useMsgField = p.getProperty("AGGREGATE.DISTINCT_APPROX_COUNT.USE_MSG_FIELD");
+        this.useMsgField = p.getProperty("AGGREGATE.DISTINCT_APPROX_COUNT.USE_MSG_FIELD_LIST");
 //        distinctApproxCountMap = new HashMap<String, DistinctApproxCount>();
-        System.out.println("use msg  " +useMsgField);
         distinctApproxCount=new DistinctApproxCount();
         distinctApproxCount.setup(l,p);
     }

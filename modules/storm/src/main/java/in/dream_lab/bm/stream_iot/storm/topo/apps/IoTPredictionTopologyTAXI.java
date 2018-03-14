@@ -116,15 +116,11 @@ public class IoTPredictionTopologyTAXI {
 //         			.shuffleGrouping("spout8")
 //         			.shuffleGrouping("spout9")
 //		            .shuffleGrouping("spout10");
-        ;
 
-
-
-//
 
         builder.setSpout("mqttSubscribeTaskBolt",
                 new MQTTSubscribeSpout(p_,"dummyLog"), 1); // "RowString" should have path of blob
-//
+
         builder.setBolt("AzureBlobDownloadTaskBolt",
                 new AzureBlobDownloadTaskBolt(p_), 1)
                 .shuffleGrouping("mqttSubscribeTaskBolt");
@@ -136,30 +132,26 @@ public class IoTPredictionTopologyTAXI {
                 new in.dream_lab.bm.stream_iot.storm.bolts.IoTPredictionBolts.TAXI.DecisionTreeClassifyBolt(p_), 1)
                 .shuffleGrouping("SenMLParseBoltPREDTAXI")
                 .fieldsGrouping("AzureBlobDownloadTaskBolt",new Fields("ANALAYTICTYPE"));
-//
-//
+
         builder.setBolt("LinearRegressionPredictorBolt",
                 new in.dream_lab.bm.stream_iot.storm.bolts.IoTPredictionBolts.TAXI.LinearRegressionPredictorBolt(p_), 1)
                 .shuffleGrouping("SenMLParseBoltPREDTAXI")
                 .fieldsGrouping("AzureBlobDownloadTaskBolt",new Fields("ANALAYTICTYPE"));
-////
-////
+
         builder.setBolt("BlockWindowAverageBolt",
                 new BlockWindowAverageBolt(p_), 1)
                 .shuffleGrouping("SenMLParseBoltPREDTAXI");
-////
-////
+
         builder.setBolt("ErrorEstimationBolt",
                 new ErrorEstimationBolt(p_), 1)
                 .shuffleGrouping("BlockWindowAverageBolt")
                 .shuffleGrouping("LinearRegressionPredictorBolt");
-////
+
         builder.setBolt("MQTTPublishBolt",
                 new MQTTPublishBolt(p_), 1)
                 .fieldsGrouping("ErrorEstimationBolt",new Fields("ANALAYTICTYPE"))
                 .fieldsGrouping("DecisionTreeClassifyBolt",new Fields("ANALAYTICTYPE")) ;
-////
-////
+
         builder.setBolt("sink", new Sink(sinkLogFileName), 1).shuffleGrouping("MQTTPublishBolt");
 
 

@@ -49,12 +49,14 @@ public class ETLTopology
 		 InputStream input = new FileInputStream(taskPropFilename);
 		 p_.load(input);
 		 TopologyBuilder builder = new TopologyBuilder();
-		 
-//	   String basePathForMultipleSpout="/home/anshu/shilpa/code/data/SYS-6hrs-10filles-splitted-data/";
-	   String basePathForMultipleSpout="/home/shilpa/Datasets/CityCanvasData/SYS_6hrs_data_10Files/SYS-inputcsv-predict-10spouts200mps-480sec-file/"; 
-	   String spout1InputFilePath=basePathForMultipleSpout+"test.csv";
+		
+		/*The below code shows how we can have multiple spouts read from different files 
+		This is to provide multiple spout threads running at the same time but reading 
+		data from separate file - Shilpa  */
+
+	   String basePathForMultipleSpout="/home/shilpa/codespace/riot-bench/modules/tasks/src/main/resources/";
+	   String spout1InputFilePath=basePathForMultipleSpout+"SYS_sample_data_senml.csv";
 	   
-//	   String spout1InputFilePath=basePathForMultipleSpout+"SYS-inputcsv-predict-10spouts200mps-480sec-file1.csv";
 //       String spout2InputFilePath=basePathForMultipleSpout+"SYS-inputcsv-predict-10spouts200mps-480sec-file2.csv";
 //       String spout3InputFilePath=basePathForMultipleSpout+"SYS-inputcsv-predict-10spouts200mps-480sec-file3.csv";
 //
@@ -65,8 +67,10 @@ public class ETLTopology
 //       String spout8InputFilePath=basePathForMultipleSpout+"SYS-inputcsv-predict-10spouts200mps-480sec-file8.csv";
 //       String spout9InputFilePath=basePathForMultipleSpout+"SYS-inputcsv-predict-10spouts200mps-480sec-file9.csv";
 //       String spout10InputFilePath=basePathForMultipleSpout+"SYS-inputcsv-predict-10spouts200mps-480sec-file10.csv";
-		 		 
-       builder.setSpout("spout1", new SampleSenMLSpout(spout1InputFilePath, spoutLogFileName, argumentClass.getScalingFactor()),
+		
+
+
+        builder.setSpout("spout1", new SampleSenMLSpout(spout1InputFilePath, spoutLogFileName, argumentClass.getScalingFactor()),
                1);
 //       builder.setSpout("spout2", new SampleSenMLSpout(spout2InputFilePath, spoutLogFileName, argumentClass.getScalingFactor()),
 //               1);
@@ -90,7 +94,7 @@ public class ETLTopology
 	   builder.setBolt("SenMlParseBolt",
 	                new SenMLParseBolt(p_), 1)
 	                .shuffleGrouping("spout1");
-//                 	.shuffleGrouping("spout2")
+////                 	.shuffleGrouping("spout2")
 //         			.shuffleGrouping("spout3")
 //         			.shuffleGrouping("spout4")
 //         			.shuffleGrouping("spout5")
@@ -129,12 +133,12 @@ public class ETLTopology
 	                new CsvToSenMLBolt(p_), 1)
 	                .shuffleGrouping("AnnotationBolt");
  
-		 builder.setBolt("PublishBolt",
-	                new MQTTPublishBolt(p_), 1)
-	                .shuffleGrouping("CsvToSenMLBolt");
-				 
+//		 builder.setBolt("PublishBolt",
+//	                new MQTTPublishBolt(p_), 1)
+//	                .shuffleGrouping("CsvToSenMLBolt");
+//				 
 		 builder.setBolt("sink", new Sink(sinkLogFileName), 1)
-         			.shuffleGrouping("PublishBolt")
+         			.shuffleGrouping("CsvToSenMLBolt")
 		            .shuffleGrouping("AzureInsert");
 		 
 		 StormTopology stormTopology = builder.createTopology();
