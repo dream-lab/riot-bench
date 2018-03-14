@@ -133,12 +133,12 @@ public class ETLTopology
 	                new CsvToSenMLBolt(p_), 1)
 	                .shuffleGrouping("AnnotationBolt");
  
-//		 builder.setBolt("PublishBolt",
-//	                new MQTTPublishBolt(p_), 1)
-//	                .shuffleGrouping("CsvToSenMLBolt");
-//				 
+		 builder.setBolt("PublishBolt",
+	                new MQTTPublishBolt(p_), 1)
+	                .shuffleGrouping("CsvToSenMLBolt");
+
 		 builder.setBolt("sink", new Sink(sinkLogFileName), 1)
-         			.shuffleGrouping("CsvToSenMLBolt")
+         			.shuffleGrouping("PublishBolt")
 		            .shuffleGrouping("AzureInsert");
 		 
 		 StormTopology stormTopology = builder.createTopology();
