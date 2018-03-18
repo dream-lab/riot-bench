@@ -64,10 +64,9 @@ public class SimpleLinearRegressionPredictorBolt extends BaseRichBolt {
         HashMap<String, String> map = new HashMap();
         map.put(AbstractTask.DEFAULT_KEY, kalmanUpdatedVal);
         simpleLinearRegressionPredictor.doTask(map);
-
+        
 
         float[] res= simpleLinearRegressionPredictor.getLastResult();
-
         if(res!=null) {
             StringBuffer resTostring = new StringBuffer();
 

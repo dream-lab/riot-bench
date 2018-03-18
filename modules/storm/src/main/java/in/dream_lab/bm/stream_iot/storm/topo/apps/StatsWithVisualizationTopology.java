@@ -88,7 +88,7 @@ public class StatsWithVisualizationTopology
                 .shuffleGrouping("Visualization");
    
         builder.setBolt("sink", new Sink(sinkLogFileName), 1)
-                       .shuffleGrouping("Visualization");
+                       .shuffleGrouping("AzureBlobUploadTaskBolt");
 
 
         StormTopology stormTopology = builder.createTopology();

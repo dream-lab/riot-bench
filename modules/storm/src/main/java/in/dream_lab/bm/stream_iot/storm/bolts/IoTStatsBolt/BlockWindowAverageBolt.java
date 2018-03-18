@@ -63,13 +63,11 @@ public class BlockWindowAverageBolt extends BaseRichBolt {
 	        }
 	        
 	        HashMap<String, String> map = new HashMap<String, String>();
-	        
 	        map.put(AbstractTask.DEFAULT_KEY, obsVal);
 	        Float res = blockWindowAverage.doTask(map);
 	        
 	        sensorMeta = sensorMeta.concat(",").concat(obsType);
 	        obsType = "AVG";
-	        
 	        if(res!=null ) {
 	            if(res!=Float.MIN_VALUE) 
 	            {

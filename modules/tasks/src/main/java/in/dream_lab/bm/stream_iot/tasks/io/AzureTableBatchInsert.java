@@ -58,7 +58,12 @@ public class AzureTableBatchInsert extends AbstractTask<String,Float>
 			for(int i = 0; i < map.size(); i++)
 			{
 				tuple = (String)map.get(String.valueOf(i));
-				SYSCity obj = SYSCity.parseString(tuple);
+				//For Taxi dataset 
+				TaxiTrip obj = TaxiTrip.parseString(tuple);
+				
+				/*For FIT dataset 
+				FITdata obj = FITdata.parseString(tuple);
+				*/
 				batchOperation.insert(obj);			
 			 }
 			ArrayList a = table.execute(batchOperation);

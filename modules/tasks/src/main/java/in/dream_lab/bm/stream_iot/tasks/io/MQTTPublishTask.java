@@ -79,18 +79,13 @@ public class MQTTPublishTask extends AbstractTask implements MqttCallback {
 		try { /* publish the message */
 			if(!mqttClient.isConnected()) 
 			{
-				System.out.println("MQTT not connected ");
 				l.warn("Client ID {} was not connected. Reconnecting...", mqttClient.getClientId());
 				mqttClient = connectToMQTT(apolloURL,apolloClient, this, l); // connect on demand
 			}
-			if(mqttClient == null )
-				System.out.println("MQTT client null");
-			if(topic == null )
-				System.out.println("Topic null");
-			if(input == null )
-				System.out.println("input null");
-			
-			mqttClient.publish(topic, input.getBytes(), 0, false);
+			if(input != null)
+			{
+				mqttClient.publish(topic, input.getBytes(), 0, false);
+			}
 		} catch (MqttException e) {
 			l.warn("Exception when publishing mqtt message " + input +
 					", to topic " + topic + ", using client " + mqttClient, e);

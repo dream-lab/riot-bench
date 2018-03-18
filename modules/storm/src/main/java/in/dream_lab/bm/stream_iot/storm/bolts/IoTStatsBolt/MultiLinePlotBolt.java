@@ -68,13 +68,6 @@ public class MultiLinePlotBolt extends BaseRichBolt {
 		map.put("OBSVALUE", input.getStringByField("res"));
 		map.put("META", input.getStringByField("META"));
 	
-	
-//		map.put("SENSORID", "aaab2");
-//		map.put("OBSTYPE", "AVG");
-//		map.put("OBSVALUE", "26");
-//		map.put("META", "aaab2,electronic,temperature ");
-	
-		
 		// call accumulator with tuple
 		float res = accumlatorTask.doTaskLogic(map);
 		if (res == 1.0f) { // finished accumulate

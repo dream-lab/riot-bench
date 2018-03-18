@@ -42,7 +42,8 @@ public class ETLTopology
 		 String sinkLogFileName = argumentClass.getOutputDirName() + "/sink-" + logFilePrefix;
 		 String spoutLogFileName = argumentClass.getOutputDirName() + "/spout-" + logFilePrefix;
 		 String taskPropFilename=argumentClass.getTasksPropertiesFilename();
-
+		 String spout1InputFilePath=argumentClass.getInputDatasetPathName();
+		 
 		 Config conf = new Config();
 		 conf.setDebug(false);
 		 Properties p_=new Properties();
@@ -54,8 +55,7 @@ public class ETLTopology
 		This is to provide multiple spout threads running at the same time but reading 
 		data from separate file - Shilpa  */
 
-	   String basePathForMultipleSpout="/home/shilpa/codespace/riot-bench/modules/tasks/src/main/resources/";
-	   String spout1InputFilePath=basePathForMultipleSpout+"SYS_sample_data_senml.csv";
+	    
 	   
 //       String spout2InputFilePath=basePathForMultipleSpout+"SYS-inputcsv-predict-10spouts200mps-480sec-file2.csv";
 //       String spout3InputFilePath=basePathForMultipleSpout+"SYS-inputcsv-predict-10spouts200mps-480sec-file3.csv";
@@ -125,9 +125,9 @@ public class ETLTopology
 	                new AnnotationBolt(p_), 1)
 	                .shuffleGrouping("JoinBolt"); 
 
-		 builder.setBolt("AzureInsert",
-	                new AzureTableInsertBolt(p_), 1)
-	                .shuffleGrouping("AnnotationBolt");
+//		 builder.setBolt("AzureInsert",
+//	                new AzureTableInsertBolt(p_), 1)
+//	                .shuffleGrouping("AnnotationBolt");
 		 
 		 builder.setBolt("CsvToSenMLBolt",
 	                new CsvToSenMLBolt(p_), 1)
@@ -138,8 +138,8 @@ public class ETLTopology
 	                .shuffleGrouping("CsvToSenMLBolt");
 
 		 builder.setBolt("sink", new Sink(sinkLogFileName), 1)
-         			.shuffleGrouping("PublishBolt")
-		            .shuffleGrouping("AzureInsert");
+         			.shuffleGrouping("PublishBolt");
+//		            .shuffleGrouping("AzureInsert");
 		 
 		 StormTopology stormTopology = builder.createTopology();
 		 
