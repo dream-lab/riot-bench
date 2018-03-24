@@ -63,7 +63,6 @@ public class SQLBlobUploabBolt extends BaseRichBolt {
 
         Float blobRes = sqlBlobUploadTask.doTask(map);
 
-
         if(res!=null ) {
             if(blobRes!=Float.MIN_VALUE)
                 collector.emit(new Values(msgId,fileName));

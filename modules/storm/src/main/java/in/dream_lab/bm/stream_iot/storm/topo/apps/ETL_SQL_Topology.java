@@ -130,17 +130,17 @@ public class ETL_SQL_Topology
 	                new SQLTableInsertBolt(p_), 1)
 	                .shuffleGrouping("AnnotationBolt");
 		 
-//		 builder.setBolt("CsvToSenMLBolt",
-//	                new CsvToSenMLBolt(p_), 1)
-//	                .shuffleGrouping("AnnotationBolt");
-// 
-//		 builder.setBolt("PublishBolt",
-//	                new MQTTPublishBolt(p_), 1)
-//	                .shuffleGrouping("CsvToSenMLBolt");
+		 builder.setBolt("CsvToSenMLBolt",
+	                new CsvToSenMLBolt(p_), 1)
+	                .shuffleGrouping("AnnotationBolt");
+ 
+		 builder.setBolt("PublishBolt",
+	                new MQTTPublishBolt(p_), 1)
+	                .shuffleGrouping("CsvToSenMLBolt");
 
 		 builder.setBolt("sink", new Sink(sinkLogFileName), 1)
-         			.shuffleGrouping("SQLInsert");
-//		            .shuffleGrouping("AzureInsert");
+         			.shuffleGrouping("PublishBolt")
+		            .shuffleGrouping("SQLInsert");
 		 
 		 StormTopology stormTopology = builder.createTopology();
 		 

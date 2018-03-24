@@ -37,10 +37,9 @@ public class SQLBlobUploadTask extends AbstractTask<String,Float> {
 			if(!doneSetup) 
 			{ 
 				connStr = p_.getProperty("IO.SQL.CONN_STR"); 
-				tableName = p_.getProperty("IO.SQL.TABLE_NAME");		
 				username =  p_.getProperty("IO.SQL.USER_NAME");
 				password = p_.getProperty("IO.SQL.PASSWORD");
-				query = "INSERT INTO stat" + "(keyid,value) VALUES" + "(?,?)";
+				query = p_.getProperty("IO.SQL.QUERY");
 				dirPath = p_.getProperty("IO.SQL_BLOB_UPLOAD.DIR_PATH");
 				doneSetup = true;
 			}

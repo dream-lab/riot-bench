@@ -32,10 +32,9 @@ public class SQLTableInsertTask extends AbstractTask<String,Float>
 			if(!doneSetup)
 			{ 
 				connStr = p_.getProperty("IO.SQL.CONN_STR"); 
-				tableName = p_.getProperty("IO.SQL.TABLE_NAME");		
 				username =  p_.getProperty("IO.SQL.USER_NAME");
 				password = p_.getProperty("IO.SQL.PASSWORD");
-				query = "INSERT INTO etl" + "(keyid,value) VALUES" + "(?,?)";		
+				query = p_.getProperty("IO.SQL.QUERY");		
 				doneSetup = true;
 			}
 		}
