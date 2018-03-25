@@ -112,6 +112,6 @@ public class MultiLinePlotBolt extends BaseRichBolt {
 
 	@Override
 	public void declareOutputFields(OutputFieldsDeclarer outputFieldsDeclarer) {
-		outputFieldsDeclarer.declare(new Fields("MSGID", "PATH"));
+		outputFieldsDeclarer.declare(new Fields("MSGID", "FILENAME"));
 	}
 }
